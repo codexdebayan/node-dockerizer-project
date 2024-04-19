@@ -1,4 +1,4 @@
-pipeline {
+ pipeline {
     agent any
     stages {
         stage('Check Out SCM') {
@@ -36,8 +36,8 @@ pipeline {
             steps{
                 withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
     bat "docker login -u $USERNAME -p $PASSWORD"
-    bat 'docker tag my-node-app:1.0 "${USERNAME}/my-node-app:1.0"'
-    bat 'docker push "${USERNAME}/my-node-app:1.0"'
+    bat 'docker tag my-node-app:1.0 "codexdebayan/my-node-app:1.0"'
+    bat 'docker push "codexdebayan/my-node-app:1.0"'
     bat 'docker logout'
 }
 
