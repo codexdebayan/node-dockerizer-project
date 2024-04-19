@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node.js App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #70a861;
+        }
+        p {
+            color: #555;
+            margin-top: 20px;
+        }
+        .time {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .logo {
+            width: 100px;
+            height: 100px;
+            margin-top: -60px; /* Adjust this value to position the logo */
+        }
+        .buttons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .buttons button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            font-size: 16px;
+            background-color: #70a861;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .buttons button:hover {
+            background-color: #609050;
+        }
+        .tagline {
+            font-size: 14px;
+            color: #555;
+            text-decoration: none;
+        }
+        .tagline:hover {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg" alt="Node.js Logo">
+        <h1>{message}</h1>
+        <p>Build to showcase the CI/CD automation.</p>
+        <div class="time" id="time"></div>
+        <div class="buttons">
+            <button onclick="window.location.href = 'https://nodejs.org/en/docs/'">Read Documentation</button>
+            <button onclick="window.location.href = 'https://nodejs.org/en/'">Visit Node.js </button>
+        </div>
+        <p class="tagline">Built by <a href="https://codexdebayan.blogspot.com" target="_blank" rel="noopener noreferrer" class="tagline">Codex Debayan</a></p>
+    </div>
+
+    <script>
+        // JavaScript for displaying current time
+        const timeElement = document.getElementById('time');
+        function updateTime() {
+            const now = new Date();
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const seconds = now.getSeconds().toString().padStart(2, '0');
+            const timeString = hours + ':' + minutes + ':' + seconds;
+            timeElement.textContent = 'Current Time: ' + timeString;
+        }
+        setInterval(updateTime, 1000);
+        updateTime(); // Initial call to display time immediately
+    </script>
+</body>
+</html>
