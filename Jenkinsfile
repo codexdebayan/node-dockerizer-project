@@ -37,7 +37,8 @@
         withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
             // Log in to Docker Hub
             echo 'Logging in to Docker Hub'
-            bat 'echo $PASSWORD | docker login -u $USERNAME --password-stdin'
+            // bat 'echo $PASSWORD | docker login -u $USERNAME --password-stdin'
+            bat "docker login -u codexdebayan -p Cdebayan#2023"
 
             // Tag the Docker image
             bat 'docker tag my-node-app:1.0 "codexdebayan/my-node-app:1.0"'
