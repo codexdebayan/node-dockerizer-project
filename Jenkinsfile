@@ -32,16 +32,24 @@
             }
         }
 
-        stage ('Push-Image'){
-            steps{
-                withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-    bat "docker login -u $USERNAME -p $PASSWORD"
-    bat 'docker tag my-node-app:1.0 "codexdebayan/my-node-app:1.0"'
-    bat 'docker push "codexdebayan/my-node-app:1.0"'
-    bat 'docker logout'
-}
+        stage ('Push-Image') {
+    steps {
+        withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+            // Log in to Docker Hub
+            echo 'Logging in to Docker Hub'
+            bat 'echo $PASSWORD | docker login -u $USERNAME --password-stdin'
 
-            }
+            // Tag the Docker image
+            bat 'docker tag my-node-app:1.0 "codexdebayan/my-node-app:1.0"'
+
+            // Push the Docker image to Docker Hub
+            bat 'docker push "codexdebayan/my-node-app:1.0"'
+
+            // Log out from Docker Hub
+            echo 'Logging out from Docker Hub'
+            bat 'docker logout'
         }
+    }
+}
     }
 }
