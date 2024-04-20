@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "mocha": "^10.4.0"
+    "mocha": "^10.4.0",
+    "express": "^4.17.1"
   }
 }
