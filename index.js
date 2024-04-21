@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 const app = express();
-const port = 2000;
+const port = 4200;
 
 const message = "Welcome to my Node.js App!";
 
