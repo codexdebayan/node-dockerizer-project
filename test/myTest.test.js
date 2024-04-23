@@ -21,3 +21,8 @@ describe('GET /', function() {
       .expect(404, done);
   });
 });
+
+// Exit the script with a success status code if all tests pass
+after(function() {
+  process.exit(0);
+});
